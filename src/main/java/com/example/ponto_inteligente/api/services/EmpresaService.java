@@ -2,7 +2,11 @@ package com.example.ponto_inteligente.api.services;
 
 import java.util.Optional;
 
+import com.example.ponto_inteligente.api.dtos.CadastroPJDto;
 import com.example.ponto_inteligente.api.entities.Empresa;
+import com.example.ponto_inteligente.api.response.Response;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 
 public interface EmpresaService {
 
@@ -21,5 +25,9 @@ public interface EmpresaService {
      * @return Empresa
      */
     Empresa persistir(Empresa empresa);
+
+    Empresa persistir(CadastroPJDto cadastroPJDto);
+
+    void conferirDuplicatas(CadastroPJDto cadastroPJDto, BindingResult result);
 
 }
